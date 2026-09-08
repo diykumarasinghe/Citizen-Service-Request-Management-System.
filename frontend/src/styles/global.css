@@ -1,0 +1,25 @@
+/* global.css — imports all base styles */
+/* Bootstrap and Icons are imported in index.css */
+/* This file is kept for any additional global overrides */
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus visible outline for accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
+/* Transitions on interactive elements */
+a,
+button {
+  transition: all 0.2s ease;
+}
+
+/* No text decoration on links by default unless they are inline text links */
+a.text-decoration-none {
+  text-decoration: none !important;
+}

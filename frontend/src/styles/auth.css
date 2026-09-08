@@ -1,0 +1,242 @@
+/* auth.css — Authentication page specific styles */
+
+/* Full-screen split login layout */
+.login-split-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  background: linear-gradient(180deg, #3450E8 50%, #EEF3FF 50%);
+  padding: 2rem 1rem;
+  position: relative;
+}
+
+.login-split-card {
+  width: 100%;
+  max-width: 920px;
+  margin: auto;
+  background: #FFFFFF;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px -10px rgba(15, 23, 42, 0.25), 0 8px 24px -6px rgba(15, 23, 42, 0.12);
+  display: flex;
+  overflow: hidden;
+  min-height: 540px;
+}
+
+/* Left panel — login form */
+.login-left-panel {
+  flex: 1;
+  padding: 2.5rem 2.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Right panel — illustration */
+.login-right-panel {
+  flex: 1;
+  background: linear-gradient(135deg, #EEF3FF 0%, #DBEAFE 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-right-panel::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 220px;
+  height: 220px;
+  background: rgba(52, 80, 232, 0.08);
+  border-radius: 50%;
+}
+
+.login-right-panel::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  width: 160px;
+  height: 160px;
+  background: rgba(52, 80, 232, 0.06);
+  border-radius: 50%;
+}
+
+.login-illustration {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 320px;
+}
+
+/* Central illustration with service icons */
+.illustration-center {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 1.75rem;
+  box-shadow: 0 8px 32px rgba(52, 80, 232, 0.12);
+  margin-bottom: 1.5rem;
+}
+
+.illustration-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.illus-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+}
+
+.illus-icon-blue { background: #EFF6FF; color: #3450E8; }
+.illus-icon-green { background: #DCFCE7; color: #16A34A; }
+.illus-icon-amber { background: #FEF3C7; color: #D97706; }
+.illus-icon-indigo { background: #EEF2FF; color: #4F46E5; }
+.illus-icon-red { background: #FEE2E2; color: #DC2626; }
+.illus-icon-teal { background: #CCFBF1; color: #0D9488; }
+
+/* Progress / chart bar in illustration */
+.illus-chart-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 48px;
+  margin-top: 0.75rem;
+}
+
+.illus-bar {
+  flex: 1;
+  border-radius: 4px 4px 0 0;
+  background: linear-gradient(to top, #3450E8, #60A5FA);
+  opacity: 0.8;
+}
+
+/* Notification card overlay */
+.illus-notif-card {
+  position: absolute;
+  top: 16px;
+  right: -10px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  padding: 0.5rem 0.75rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+/* Location pin badge */
+.illus-location-badge {
+  position: absolute;
+  bottom: 16px;
+  left: -10px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  padding: 0.5rem 0.75rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  z-index: 2;
+}
+
+/* Slider dots */
+.illus-slider-dots {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.illus-dot {
+  height: 4px;
+  border-radius: 2px;
+  background: #CBD5E1;
+}
+
+.illus-dot.active {
+  width: 24px;
+  background: #3450E8;
+}
+
+.illus-dot:not(.active) {
+  width: 12px;
+}
+
+/* Slide-in animation for the card */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-split-card {
+  animation: slideUp 0.4s ease-out;
+}
+
+/* Responsive: on mobile hide right panel */
+@media (max-width: 767.98px) {
+  .login-split-wrapper {
+    background: #3450E8;
+    align-items: center;
+  }
+  .login-split-card {
+    flex-direction: column;
+    max-width: 460px;
+    min-height: auto;
+  }
+  .login-right-panel {
+    display: none;
+  }
+  .login-left-panel {
+    padding: 2rem 1.75rem;
+  }
+}
+
+/* Password show/hide toggle wrapper */
+.password-input-wrapper {
+  position: relative;
+}
+
+.password-input-wrapper .form-control {
+  padding-right: 2.8rem;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  color: #64748B;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  z-index: 5;
+}
+
+.password-toggle-btn:hover {
+  color: var(--accent-blue);
+}
